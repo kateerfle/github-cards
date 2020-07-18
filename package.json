@@ -13,5 +13,12 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.2.0"
+  },
+  "dependencies": {
+    "mdbootstrap": "^4.19.1",
+    "mdbreact": "^4.27.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-bootstrap": "^1.0.1"
   }
 }

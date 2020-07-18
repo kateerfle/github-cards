@@ -7,9 +7,16 @@ var cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var testAPIRouter = require('./routes/testAPI');
+var saveRouter = require('./routes/save');
 
 var app = express();
+
+var mongoose = require('mongoose');
+  mongoose.connect('mongodb+srv://erflek:dbadminpass@cluster0-kp699.mongodb.net/cluster0?retryWrites=true&w=majority', {
+  useUnifiedTopology: true, useNewUrlParser: true })
+  .then(() => console.log( 'Database Connected' ))
+    .catch(err => console.log( err ));;
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/testAPI', testAPIRouter);
+app.use('/save', saveRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
